@@ -1,7 +1,7 @@
 const axios = require('axios');
 const { latitude, longitude } = require('../epicenterCoords.json');
 
-const baseUrl = 'https://api.yelp.com/v3/businesses/search?';
+const baseUrl = process.env.YELP_APIURL;
 const apiKey = process.env.YELP_APIKEY;
 
 const options = { headers: { Authorization: `Bearer ${apiKey}` } };
