@@ -5,11 +5,14 @@ const mockData = require('../api/mockData/mockData.json');
 const filterRestaurants = require('../util/filterRestaurants');
 
 router.get('/:latitude/:longitude/:category', async (req, res) => {
+	console.log(process.env.NODE_ENV);
+	console.log(process.env.YELP_APIKEY);
+
 	const params = ({ latitude, longitude, category } = req.params);
 
 	let restaurants;
 
-	if (process.env.NODE_ENV === 'production') {
+	if (process.env.NODE_ENV !== 'production') {
 		restaurants = {
 			data: mockData,
 		};

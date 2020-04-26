@@ -1,7 +1,8 @@
-const { baseUrl, apiKey } = require('./apiConfig.json');
 const axios = require('axios');
 
 const getYelp = async ({ category, latitude, longitude }) => {
+	const baseUrl = 'https://api.yelp.com/v3/businesses/search?';
+	const apiKey = process.env.YELP_APIKEY;
 	const query = `term=restaurants&categories=${category}&latitude=${latitude}&longitude=${longitude}&sort_by=distance`;
 	const url = baseUrl + query;
 	const options = { headers: { Authorization: `Bearer ${apiKey}` } };

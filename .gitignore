@@ -116,3 +116,5 @@ dist
 
 # api stuff
 api/apiKey.json
+
+.env
